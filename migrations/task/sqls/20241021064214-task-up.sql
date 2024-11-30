@@ -29,10 +29,10 @@ where email in ('muscle@hexschooltest.io','starplatinum@hexschooltest.io');
 delete from "USER"
 where email ='opcatiy0@hexschooltest.io';
 -- 1-4 查詢：取得USER 資料表目前所有用戶數量（提示：使用count函式）
-select count(*) from "USER"
+select count(*) from "USER";
 -- 1-5 查詢：取得 USER 資料表所有用戶資料，並列出前 3 筆（提示：使用limit語法）
--- select * from "USER" 
--- limit 3;   
+select * from "USER" 
+limit 3;   
 --  ████████  █████   █    ████  
 --    █ █   ██    █  █         █ 
 --    █ █████ ███ ███       ███  
@@ -89,22 +89,59 @@ select count(*) from "USER"
 -- where email in ('muscle@hexschooltest.io','starplatinum@hexschooltest.io');
 -- 3-2. 新增：承1，為三名教練新增專長資料至 `COACH_LINK_SKILL` ，資料需求如下：
     -- 1. 所有教練都有 `重訓` 專長
-    -- 2. 教練`肌肉棒子` 需要有 `瑜伽` 專長
-    -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
+    --只能新增ㄧ個教練的技能
+-- insert  into "COACH_LINK_SKILL"(coach_id,skill_id)values(
+-- (select id from "COACH" where user_id =(select id from "USER" where email ='lee2000@hexschooltest.io')),
+-- (select id from "SKILL" where name = '重訓')
+-- )
+--可以新增多個教練的技能
 -- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
--- select c.id as coach_id,s.id as skill_id
+-- select 
+--     c.id as coach_id,
+--     s.id as skill_id
 -- from "COACH"  as c
 -- join "USER" as u on c.user_id = u.id
 -- join "SKILL" as s on s.name='重訓'
 -- where u.email in('muscle@hexschooltest.io','starplatinum@hexschooltest.io')
-;
-
+-- ;
+    -- 2. 教練`肌肉棒子` 需要有 `瑜伽` 專長
+-- insert  into "COACH_LINK_SKILL"(coach_id,skill_id)values(
+-- (select id from "COACH" where user_id =(select id from "USER" where email ='muscle@hexschooltest.io')),
+-- (select id from "SKILL" where name = '瑜伽')
+-- )
+    -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
+-- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
+-- select 
+-- 	c.id as coach_id,
+-- 	s.id as skill_id
+-- from "SKILL" as s
+-- CROSS JOIN
+--   (
+--    select id from "COACH" 
+--    where user_id = (select id from "USER" where email='starplatinum@hexschooltest.io') 
+--   ) AS c
+-- where s.name in ('有氧運動','復健訓練')
+-- ;
 
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：
     -- 1. 教練`肌肉棒子` 的經驗年數為3年
     -- 2. 教練`Q太郎` 的經驗年數為5年
+-- update "COACH" as c
+-- set experience_years = case 
+-- 	when u.name ='肌肉棒子'then 3
+-- 	when u.name ='Q太郎' THEN 5  
+-- else c.experience_years 
+-- end 
+-- from "USER"  as u
+-- where c.user_id =u.id
+-- and u.name in ('肌肉棒子','Q太郎')
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
+-- insert into "SKILL" (name)
+-- values('空中瑜伽')
+
+-- DELETE FROM "SKILL"
+-- WHERE name = '空中瑜伽';
 
 
 --  ████████  █████   █    █   █ 
@@ -123,7 +160,15 @@ select count(*) from "USER"
     -- 5. 授課結束時間`end_at`設定為2024-11-25 16:00:00
     -- 6. 最大授課人數`max_participants` 設定為10
     -- 7. 授課連結設定`meeting_url`為 https://test-meeting.test.io
-
+-- insert into "COURSE" (user_id, skill_id, name, start_at, end_at, max_participants, meeting_url) values
+-- ((select id from "USER" where email = 'lee2000@hexschooltest.io'),
+--   (select id from "SKILL" where name = '重訓'),
+--   '重訓基礎課',
+--   '2024-11-25 14:00:00',
+--   '2024-11-25 16:00:00',
+--   10,
+--   'https://test-meeting.test.io'
+-- );
 
 -- ████████  █████   █    █████ 
 --   █ █   ██    █  █     █     
