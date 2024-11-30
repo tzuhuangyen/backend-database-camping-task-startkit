@@ -31,7 +31,7 @@ where email ='opcatiy0@hexschooltest.io';
 -- 1-4 查詢：取得USER 資料表目前所有用戶數量（提示：使用count函式）
 select count(*) from "USER"
 -- 1-5 查詢：取得 USER 資料表所有用戶資料，並列出前 3 筆（提示：使用limit語法）
-SELECT * FROM "USER" LIMIT 3;
+-- SELECT * FROM "USER" LIMIT 3;
 
 --  ████████  █████   █    ████  
 --    █ █   ██    █  █         █ 
@@ -52,7 +52,11 @@ insert into "CREDIT_PACKAGE" (name, credit_amount , price) values
     -- 1. `王小明` 購買 `14 堂組合包方案`
     -- 2. `王小明` 購買 `21 堂組合包方案`
     -- 3. `好野人` 購買 `14 堂組合包方案`
-
+insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,price_paid)values
+((select id from "USER" where email = 'wXlTq@hexschooltest.io'),
+  (select id from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select credit_amount from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select price from "CREDIT_PACKAGE" where name = '14 堂組合包方案'));
 
 -- ████████  █████   █    ████   
 --   █ █   ██    █  █         ██ 
