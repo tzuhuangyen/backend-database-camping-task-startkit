@@ -52,23 +52,23 @@ limit 3;
     -- 1. `王小明` 購買 `14 堂組合包方案`
     -- 2. `王小明` 購買 `21 堂組合包方案`
     -- 3. `好野人` 購買 `14 堂組合包方案`
--- insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,price_paid)values
--- ((select id from "USER" where email = 'wXlTq@hexschooltest.io'),
---   (select id from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
---   (select credit_amount from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
---   (select price from "CREDIT_PACKAGE" where name = '14 堂組合包方案'));
+insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,price_paid)values
+((select id from "USER" where email = 'wXlTq@hexschooltest.io'),
+  (select id from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select credit_amount from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select price from "CREDIT_PACKAGE" where name = '14 堂組合包方案'));
 
--- insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,price_paid)values
--- ((select id from "USER" where email = 'wXlTq@hexschooltest.io'),
---   (select id from "CREDIT_PACKAGE" where name = '21 堂組合包方案'),
---   (select credit_amount from "CREDIT_PACKAGE" where name = '21 堂組合包方案'),
---   (select price from "CREDIT_PACKAGE" where name = '21 堂組合包方案'));
+insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,price_paid)values
+((select id from "USER" where email = 'wXlTq@hexschooltest.io'),
+  (select id from "CREDIT_PACKAGE" where name = '21 堂組合包方案'),
+  (select credit_amount from "CREDIT_PACKAGE" where name = '21 堂組合包方案'),
+  (select price from "CREDIT_PACKAGE" where name = '21 堂組合包方案'));
 
--- insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,price_paid)values
--- ((select id from "USER" where email = 'richman@hexschooltest.io'),
---   (select id from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
---   (select credit_amount from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
---   (select price from "CREDIT_PACKAGE" where name = '14堂組合包方案'));
+insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,price_paid)values
+((select id from "USER" where email = 'richman@hexschooltest.io'),
+  (select id from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select credit_amount from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select price from "CREDIT_PACKAGE" where name = '14堂組合包方案'));
 -- ████████  █████   █    ████   
 --   █ █   ██    █  █         ██ 
 --   █ █████ ███ ███       ███   
