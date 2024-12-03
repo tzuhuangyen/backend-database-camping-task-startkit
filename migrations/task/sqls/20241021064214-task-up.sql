@@ -334,3 +334,8 @@ where "CREDIT_PURCHASE".purchase_at >= '2024-11-01 00:00:00'
 and "CREDIT_PURCHASE".purchase_at <= '2024-11-30 23:59:59';
 -- 6-5. 查詢：計算 11 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
 -- 顯示須包含以下欄位： 預約會員人數
+select count(Distinct("COURSE_BOOKING".user_id)) as "預約會員人數"
+from "COURSE_BOOKING"
+where "COURSE_BOOKING".created_at >= '2024-11-01 00:00:00' 
+and "COURSE_BOOKING".created_at <= '2024-11-30 23:59:59' 
+and "COURSE_BOOKING".status != '課程已取消';
