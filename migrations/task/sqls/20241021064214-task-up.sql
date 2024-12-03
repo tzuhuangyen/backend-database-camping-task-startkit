@@ -85,10 +85,10 @@ insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,pri
 insert into "COACH" (user_id, experience_years) values 
 ((select id from "USER" where email = 'lee2000@hexschooltest.io'), 2)
 
--- insert into "COACH"(user_id,experience_years)
--- select id,2
--- from "USER" 
--- where email in ('muscle@hexschooltest.io','starplatinum@hexschooltest.io');
+insert into "COACH"(user_id,experience_years)
+select id,2
+from "USER" 
+where email in ('muscle@hexschooltest.io','starplatinum@hexschooltest.io');
 -- 3-2. 新增：承1，為三名教練新增專長資料至 `COACH_LINK_SKILL` ，資料需求如下：
     -- 1. 所有教練都有 `重訓` 專長
     --只能新增ㄧ個教練的技能
