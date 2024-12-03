@@ -128,15 +128,15 @@ where s.name in ('有氧運動','復健訓練')
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：
     -- 1. 教練`肌肉棒子` 的經驗年數為3年
     -- 2. 教練`Q太郎` 的經驗年數為5年
--- update "COACH" as c
--- set experience_years = case 
--- 	when u.name ='肌肉棒子'then 3
--- 	when u.name ='Q太郎' THEN 5  
--- else c.experience_years 
--- end 
--- from "USER"  as u
--- where c.user_id =u.id
--- and u.name in ('肌肉棒子','Q太郎')
+update "COACH" as c
+set experience_years = case 
+	when u.name ='肌肉棒子'then 3
+	when u.name ='Q太郎' THEN 5  
+else c.experience_years 
+end 
+from "USER"  as u
+where c.user_id =u.id
+and u.name in ('肌肉棒子','Q太郎');
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
 -- insert into "SKILL" (name)
