@@ -97,14 +97,14 @@ insert  into "COACH_LINK_SKILL"(coach_id,skill_id)values(
 (select id from "SKILL" where name = '重訓')
 );
 --可以新增多個教練的技能
--- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
--- select 
---     c.id as coach_id,
---     s.id as skill_id
--- from "COACH"  as c
--- join "USER" as u on c.user_id = u.id
--- join "SKILL" as s on s.name='重訓'
--- where u.email in('muscle@hexschooltest.io','starplatinum@hexschooltest.io')
+insert into "COACH_LINK_SKILL"(coach_id,skill_id)
+select 
+    c.id as coach_id,
+    s.id as skill_id
+from "COACH"  as c
+join "USER" as u on c.user_id = u.id
+join "SKILL" as s on s.name='重訓'
+where u.email in('muscle@hexschooltest.io','starplatinum@hexschooltest.io')
 -- ;
     -- 2. 教練`肌肉棒子` 需要有 `瑜伽` 專長
 -- insert  into "COACH_LINK_SKILL"(coach_id,skill_id)values(
