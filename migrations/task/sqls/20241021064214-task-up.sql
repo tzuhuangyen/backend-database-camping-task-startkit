@@ -68,7 +68,9 @@ insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,pri
 ((select id from "USER" where email = 'richman@hexschooltest.io'),
   (select id from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
   (select credit_amount from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
-  (select price from "CREDIT_PACKAGE" where name = '14堂組合包方案'));
+  (select price from "CREDIT_PACKAGE" where name = '14 堂組合包方案'));
+
+
 -- ████████  █████   █    ████   
 --   █ █   ██    █  █         ██ 
 --   █ █████ ███ ███       ███   
