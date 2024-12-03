@@ -92,10 +92,10 @@ where email in ('muscle@hexschooltest.io','starplatinum@hexschooltest.io');
 -- 3-2. 新增：承1，為三名教練新增專長資料至 `COACH_LINK_SKILL` ，資料需求如下：
     -- 1. 所有教練都有 `重訓` 專長
     --只能新增ㄧ個教練的技能
--- insert  into "COACH_LINK_SKILL"(coach_id,skill_id)values(
--- (select id from "COACH" where user_id =(select id from "USER" where email ='lee2000@hexschooltest.io')),
--- (select id from "SKILL" where name = '重訓')
--- )
+insert  into "COACH_LINK_SKILL"(coach_id,skill_id)values(
+(select id from "COACH" where user_id =(select id from "USER" where email ='lee2000@hexschooltest.io')),
+(select id from "SKILL" where name = '重訓')
+);
 --可以新增多個教練的技能
 -- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
 -- select 
