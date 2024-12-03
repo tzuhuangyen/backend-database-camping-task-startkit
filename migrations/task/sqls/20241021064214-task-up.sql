@@ -139,11 +139,11 @@ where c.user_id =u.id
 and u.name in ('肌肉棒子','Q太郎');
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
--- insert into "SKILL" (name)
--- values('空中瑜伽')
+insert into "SKILL" (name)
+values('空中瑜伽')
 
--- DELETE FROM "SKILL"
--- WHERE name = '空中瑜伽';
+DELETE FROM "SKILL"
+WHERE name = '空中瑜伽';
 
 
 --  ████████  █████   █    █   █ 
