@@ -82,8 +82,8 @@ insert into "CREDIT_PURCHASE" (user_id, credit_package_id ,purchased_credits,pri
     -- 1. 將用戶`李燕容`新增為教練，並且年資設定為2年（提示：使用`李燕容`的email ，取得 `李燕容` 的 `id` ）
     -- 2. 將用戶`肌肉棒子`新增為教練，並且年資設定為2年
     -- 3. 將用戶`Q太郎`新增為教練，並且年資設定為2年
--- insert into "COACH" (user_id, experience_years) values 
--- ((select id from "USER" where email = 'lee2000@hexschooltest.io'), 2)
+insert into "COACH" (user_id, experience_years) values 
+((select id from "USER" where email = 'lee2000@hexschooltest.io'), 2)
 
 -- insert into "COACH"(user_id,experience_years)
 -- select id,2
