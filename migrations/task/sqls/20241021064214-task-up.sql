@@ -112,18 +112,18 @@ insert  into "COACH_LINK_SKILL"(coach_id,skill_id)values(
 (select id from "SKILL" where name = '瑜伽')
 );
     -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
--- insert into "COACH_LINK_SKILL"(coach_id,skill_id)
--- select 
--- 	c.id as coach_id,
--- 	s.id as skill_id
--- from "SKILL" as s
--- CROSS JOIN
---   (
---    select id from "COACH" 
---    where user_id = (select id from "USER" where email='starplatinum@hexschooltest.io') 
---   ) AS c
--- where s.name in ('有氧運動','復健訓練')
--- ;
+insert into "COACH_LINK_SKILL"(coach_id,skill_id)
+select 
+	c.id as coach_id,
+	s.id as skill_id
+from "SKILL" as s
+CROSS JOIN
+  (
+   select id from "COACH" 
+   where user_id = (select id from "USER" where email='starplatinum@hexschooltest.io') 
+  ) AS c
+where s.name in ('有氧運動','復健訓練')
+;
 
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：
     -- 1. 教練`肌肉棒子` 的經驗年數為3年
